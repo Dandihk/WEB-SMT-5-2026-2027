@@ -1,0 +1,20 @@
+{
+	"folders": [
+		{
+			"name": "WEB-SMT-3-2026-2027",
+			"path": "../../WEB-SMT-3-2026-2027"
+		},
+		{
+			"name": "WEB-SMT-5-2026-2027",
+			"path": ".."
+		},
+		{
+			"name": "PIC-SMT-4-20250-2026",
+			"path": "../../PIC-SMT-4-20250-2026"
+		},
+		{
+			"path": "../../Cashflow"
+		}
+	],
+	"settings": {}
+}
