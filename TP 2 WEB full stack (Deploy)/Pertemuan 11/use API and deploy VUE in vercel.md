@@ -130,12 +130,12 @@ export default api
 
 ## 8. Mengambil dan Menampilkan Data API
 
-Ganti isi `src/App.vue` dengan kode berikut:
+Ganti isi `componen/helloworld.vue` dengan kode berikut:
 
 ```vue
 <script setup>
 import { onMounted, ref } from 'vue'
-import api from './services/api'
+import api from '../services/api'
 
 const users = ref([])
 const isLoading = ref(true)
@@ -234,55 +234,6 @@ Simpan file dan periksa browser. Aplikasi seharusnya menampilkan pengguna yang d
 
 ---
 
-## 9. Contoh Request Lain dengan Axios
-
-Selain `GET`, Axios menyediakan method seperti `POST`, `PUT`, `PATCH`, dan `DELETE`.
-
-Contoh bentuk pemanggilan `POST` (gunakan hanya jika endpoint backend memang mendukung pembuatan pengguna):
-
-```javascript
-const response = await api.post('/api/api/users', {
-  name: 'Nama Pengguna',
-  email: 'pengguna@example.com',
-  password: 'password-yang-aman',
-})
-
-console.log(response.data)
-```
-
-Method HTTP yang tersedia, field yang wajib dikirim, dan aturan autentikasi bergantung pada backend. Jangan mengirim password atau data nyata saat latihan tanpa izin; API yang diberikan pada materi ini digunakan untuk membaca daftar pengguna dengan `GET`.
-
----
-
-## 10. Memahami dan Menguji API Laravel
-
-Endpoint yang digunakan pada materi ini:
-
-```text
-GET https://15larasupalagi.vercel.app/api/api/users
-```
-
-URL pada `.env.local` berisi domain saja, sedangkan path `/api/api/users` ditambahkan pada pemanggilan `api.get()`. Respons API memiliki bentuk seperti berikut:
-
-```json
-{
-  "success": true,
-  "message": "Detail data berhasil diambil",
-  "data": [
-    {
-      "id": 1,
-      "name": "Test User",
-      "email": "test@example.com"
-    }
-  ]
-}
-```
-
-Karena daftar pengguna ada di dalam properti `data`, kode Vue mengambilnya menggunakan `response.data.data`.
-
-Jika browser menampilkan error CORS, periksa konfigurasi CORS di backend Laravel. Server API harus mengizinkan origin tempat aplikasi Vue berjalan, termasuk domain Vercel yang digunakan. CORS tidak dapat diperbaiki hanya dengan mengubah kode Axios di frontend.
-
----
 
 ## 11. Build dan Deploy ke Vercel
 
@@ -331,6 +282,56 @@ Setiap kali mengubah environment variable di Vercel, lakukan deployment ulang ag
 | Data berisi error 404 | Cocokkan endpoint yang dipanggil dengan route yang tersedia pada API. |
 
 ---
+
+
+## 9. Contoh Request Lain dengan Axios
+
+Selain `GET`, Axios menyediakan method seperti `POST`, `PUT`, `PATCH`, dan `DELETE`.
+
+Contoh bentuk pemanggilan `POST` (gunakan hanya jika endpoint backend memang mendukung pembuatan pengguna):
+
+```javascript
+const response = await api.post('/api/api/users', {
+  name: 'Nama Pengguna',
+  email: 'pengguna@example.com',
+  password: 'password-yang-aman',
+})
+
+console.log(response.data)
+```
+
+Method HTTP yang tersedia, field yang wajib dikirim, dan aturan autentikasi bergantung pada backend. Jangan mengirim password atau data nyata saat latihan tanpa izin; API yang diberikan pada materi ini digunakan untuk membaca daftar pengguna dengan `GET`.
+
+---
+
+## 10. Memahami dan Menguji API Laravel
+
+Endpoint yang digunakan pada materi ini:
+
+```text
+GET https://15larasupalagi.vercel.app/api/api/users
+```
+
+URL pada `.env.local` berisi domain saja, sedangkan path `/api/api/users` ditambahkan pada pemanggilan `api.get()`. Respons API memiliki bentuk seperti berikut:
+
+```json
+{
+  "success": true,
+  "message": "Detail data berhasil diambil",
+  "data": [
+    {
+      "id": 1,
+      "name": "Test User",
+      "email": "test@example.com"
+    }
+  ]
+}
+```
+
+Karena daftar pengguna ada di dalam properti `data`, kode Vue mengambilnya menggunakan `response.data.data`.
+
+Jika browser menampilkan error CORS, periksa konfigurasi CORS di backend Laravel. Server API harus mengizinkan origin tempat aplikasi Vue berjalan, termasuk domain Vercel yang digunakan. CORS tidak dapat diperbaiki hanya dengan mengubah kode Axios di frontend.
+
 
 ## 13. Latihan
 
