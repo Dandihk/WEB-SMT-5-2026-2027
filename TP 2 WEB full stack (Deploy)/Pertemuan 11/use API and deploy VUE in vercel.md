@@ -270,7 +270,8 @@ Setiap kali mengubah environment variable di Vercel, lakukan deployment ulang ag
 
 ---
 ## 11.1 Hasil
-
+ jika dibuka akan seperti ini 
+ ![alt text](image99.png)
 
 ## 12. Troubleshooting
 
